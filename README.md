@@ -5,7 +5,7 @@ git commit -m "primeiro commit"
 git branch -M main 
 git remote add origin https://github.com/Apolo1Arthur/O-Amor-mais-puro-e-doloroso.git
  git push -u origin main
- 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -75,10 +75,18 @@ git remote add origin https://github.com/Apolo1Arthur/O-Amor-mais-puro-e-doloros
     <p>Com todo o meu amor,</p>
     <p>Apolo Arthur</p>
 
-    <audio autoplay loop>
+    <audio id="audio" loop>
       <source src="audio12.mp3" type="audio/mpeg">
       Seu navegador não suporta áudio.
     </audio>
   </div>
+
+  <script>
+    // Garantir que o áudio comece a tocar assim que a página for carregada
+    window.onload = function() {
+      var audio = document.getElementById('audio');
+      audio.play();
+    };
+  </script>
 </body>
 </html>
