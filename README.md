@@ -6,7 +6,7 @@ git branch -M main
 git remote add origin https://github.com/Apolo1Arthur/O-Amor-mais-puro-e-doloroso.git
  git push -u origin main
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
@@ -46,6 +46,26 @@ git remote add origin https://github.com/Apolo1Arthur/O-Amor-mais-puro-e-doloros
     audio {
       display: none;
     }
+
+    .audio-controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .audio-controls button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .audio-controls button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
@@ -75,6 +95,16 @@ git remote add origin https://github.com/Apolo1Arthur/O-Amor-mais-puro-e-doloros
     <p>Com todo o meu amor,</p>
     <p>Apolo Arthur</p>
 
+    <!-- Título da música -->
+    <h2 style="text-align: center; color: #ffffff;">"This I Love" - Guns N' Roses</h2>
+
+    <!-- Controles do áudio -->
+    <div class="audio-controls">
+      <button id="play-btn">Play</button>
+      <button id="pause-btn" style="display: none;">Pause</button>
+    </div>
+
+    <!-- Áudio -->
     <audio id="audio" loop>
       <source src="audio12.mp3" type="audio/mpeg">
       Seu navegador não suporta áudio.
@@ -82,11 +112,24 @@ git remote add origin https://github.com/Apolo1Arthur/O-Amor-mais-puro-e-doloros
   </div>
 
   <script>
-    // Garantir que o áudio comece a tocar assim que a página for carregada
-    window.onload = function() {
-      var audio = document.getElementById('audio');
+    // Obter os elementos do áudio e dos botões
+    const audio = document.getElementById('audio');
+    const playButton = document.getElementById('play-btn');
+    const pauseButton = document.getElementById('pause-btn');
+
+    // Função para reproduzir o áudio
+    playButton.addEventListener('click', function() {
       audio.play();
-    };
+      playButton.style.display = 'none';
+      pauseButton.style.display = 'inline-block';
+    });
+
+    // Função para pausar o áudio
+    pauseButton.addEventListener('click', function() {
+      audio.pause();
+      playButton.style.display = 'inline-block';
+      pauseButton.style.display = 'none';
+    });
   </script>
 </body>
 </html>
